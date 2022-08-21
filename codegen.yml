@@ -1,0 +1,12 @@
+overwrite: true
+schema: "https://swapi-graphql.netlify.app/.netlify/functions/index"
+generates:
+  src/generated/graphql.ts:
+    plugins:
+      - add:
+          content:
+            - '// noinspection JSUnusedGlobalSymbols,ES6UnusedImports'
+            - '// Generated - DO NOT EDIT'
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-apollo-angular"
