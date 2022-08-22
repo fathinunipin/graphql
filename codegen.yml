@@ -1,7 +1,8 @@
 overwrite: true
 schema: "https://swapi-graphql.netlify.app/.netlify/functions/index"
+documents: "src/graphql/**/*.graphql"
 generates:
-  src/generated/graphql.ts:
+  src/graphql/generated.ts:
     plugins:
       - add:
           content:
@@ -9,4 +10,6 @@ generates:
             - '// Generated - DO NOT EDIT'
       - "typescript"
       - "typescript-operations"
-      - "typescript-apollo-angular"
+      - "typescript-apollo-angular":
+          apolloAngularVersion: 4
+          addExplicitOverride: true

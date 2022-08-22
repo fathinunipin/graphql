@@ -1,0 +1,13 @@
+<article>
+  <div *ngIf="allFilms?.films">
+    <section *ngFor="let film of allFilms?.films">
+      <h2>{{film?.title}}</h2>
+      <ul>
+        <li>{{film?.episodeID}}</li>
+        <li>{{film?.director}}</li>
+        <li>{{film?.producers}}</li>
+        <li>{{film?.releaseDate}}</li>
+      </ul>
+    </section>
+  </div>
+</article>

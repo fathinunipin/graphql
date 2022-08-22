@@ -1,0 +1,22 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+article {
+  padding: 1em;
+}
+
+section {
+  border: 1px solid gray;
+  margin-bottom: 1em;
+  padding: 1em;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
