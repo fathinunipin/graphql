@@ -18,17 +18,15 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.allFilmsSubscription = this.findAllFilmsGQL.watch().valueChanges
-      .pipe(timeout(5_000), retry(3))
-      .subscribe({
-        next: ({ data, loading }) => {
-          this.loading = loading;
-          this.allFilms = data.allFilms;
-        },
-        error: err => {
-          console.log(err);
-        }
-      });
+    this.allFilmsSubscription = this.findAllFilmsGQL.watch().valueChanges.subscribe({
+      next: ({ data, loading }) => {
+        this.loading = loading;
+        this.allFilms = data.allFilms;
+      },
+      error: err => {
+        console.log(err);
+      }
+    });
   }
 
   ngOnDestroy(): void {
