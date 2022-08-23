@@ -15,7 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/pzaenger/angular-graphql.git"
   },
-  "author": "Philipp Zängerling <dev@pzaenger.com> (http://www.pzaenger.com/)",
+  "author": "Philipp Zängerling <dev@pzaenger.com> (https://www.pzaenger.com/)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/pzaenger/angular-graphql/issues"
