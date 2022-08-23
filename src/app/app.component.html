@@ -1,13 +1,13 @@
-<article>
-  <div *ngIf="allFilms?.films">
-    <section *ngFor="let film of allFilms?.films">
-      <h2>{{film?.title}}</h2>
-      <ul>
-        <li>{{film?.episodeID}}</li>
-        <li>{{film?.director}}</li>
-        <li>{{film?.producers}}</li>
-        <li>{{film?.releaseDate}}</li>
-      </ul>
-    </section>
+<p class="py-16 text-indigo-500 text-8xl text-center">Star Wars</p>
+<div *ngIf="allFilms?.films" class="py-4">
+  <div
+    class="select-none max-w-md mx-auto overflow-hidden md:max-w-2xl hover:cursor-pointer border-b-2 border-indigo-50 last-of-type:mb-0"
+    *ngFor="let film of allFilms?.films">
+    <div class="md:flex">
+      <div class="p-8">
+        <p class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Episode {{film?.episodeID}}</p>
+        <p class="block mt-1 text-lg leading-tight font-medium text-black ">{{film?.title}}</p>
+      </div>
+    </div>
   </div>
-</article>
+</div>
