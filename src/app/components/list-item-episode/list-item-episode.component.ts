@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { FindAllFilmsQuery } from '../../graphql/generated';
 
 @Component({
   selector: 'app-list-item-episode',
@@ -6,6 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class ListItemEpisodeComponent {
 
-  // TODO Fix any
-  @Input() film: any;
+  @Input() film: NonNullable<NonNullable<FindAllFilmsQuery['allFilms']>['films']>[0] | undefined;
 }
