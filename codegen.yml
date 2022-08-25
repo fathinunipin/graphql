@@ -1,8 +1,8 @@
 overwrite: true
 schema: "https://swapi-graphql.netlify.app/.netlify/functions/index"
-documents: "src/graphql/**/*.graphql"
+documents: "src/app/graphql/**/*.graphql"
 generates:
-  src/graphql/generated.ts:
+  src/app/graphql/generated.ts:
     plugins:
       - add:
           content:

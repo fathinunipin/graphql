@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { retry, Subscription, timeout } from 'rxjs';
-import { FindAllFilmsGQL, FindAllFilmsQuery } from '../graphql/generated';
+import { FindAllFilmsGQL, FindAllFilmsQuery } from './graphql/generated';
 
 @Component({
   selector: 'app-root',
