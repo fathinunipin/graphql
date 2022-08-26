@@ -7,13 +7,18 @@ import { HeaderComponent } from './components/header/header.component';
 import { ListItemEpisodeComponent } from './components/list-item-episode/list-item-episode.component';
 import { HomeComponent } from './components/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
+import { GraphqlService } from './services/graphql.service';
+import { LoadingBarComponent } from './components/loading-bar/loading-bar.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    ListItemEpisodeComponent
+    FooterComponent,
+    ListItemEpisodeComponent,
+    LoadingBarComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +26,7 @@ import { AppRoutingModule } from './app-routing.module';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [GraphqlService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

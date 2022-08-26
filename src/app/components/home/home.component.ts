@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FindAllFilmsGQL, FindAllFilmsQuery } from '../../graphql/generated';
-import { Subscription } from 'rxjs';
+import { GraphqlService } from '../../services/graphql.service';
 
 @Component({
   selector: 'app-home',
@@ -8,27 +7,10 @@ import { Subscription } from 'rxjs';
 })
 export class HomeComponent implements OnInit {
 
-  loading = false;
-  allFilms: FindAllFilmsQuery['allFilms'] | undefined;
-
-  private allFilmsSubscription: Subscription | undefined;
-
-  constructor(private findAllFilmsGQL: FindAllFilmsGQL) {
+  constructor(public graphqlService: GraphqlService) {
   }
 
   ngOnInit(): void {
-    this.allFilmsSubscription = this.findAllFilmsGQL.watch().valueChanges.subscribe({
-      next: ({ data, loading }) => {
-        this.loading = loading;
-        this.allFilms = data.allFilms;
-      },
-      error: err => {
-        console.log(err);
-      }
-    });
-  }
-
-  ngOnDestroy(): void {
-    if (this.allFilmsSubscription) this.allFilmsSubscription.unsubscribe();
+    this.graphqlService.fetchAllFilms();
   }
 }

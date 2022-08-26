@@ -1,7 +1,6 @@
-<div *ngIf="allFilms?.films" class="py-4">
-  <div
-    class="select-none max-w-xl mx-auto overflow-hidden hover:cursor-pointer border-b-2 border-indigo-50 last-of-type:mb-0"
-    *ngFor="let film of allFilms?.films">
+<ng-container *ngIf="graphqlService.films.length">
+  <div class="hover:cursor-pointer border-b-2 border-indigo-50 last-of-type:border-none"
+       *ngFor="let film of graphqlService.films">
     <app-list-item-episode [film]="film"></app-list-item-episode>
   </div>
-</div>
+</ng-container>
