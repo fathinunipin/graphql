@@ -20,6 +20,15 @@
   "bugs": {
     "url": "https://github.com/pzaenger/angular-graphql/issues"
   },
+  "keywords": [
+    "angular",
+    "apollo-angular",
+    "docker",
+    "graphql",
+    "graphqlcodegen",
+    "pm2",
+    "tailwindcss"
+  ],
   "homepage": "https://github.com/pzaenger/angular-graphql#readme",
   "dependencies": {
     "@angular/animations": "^14.1.0",

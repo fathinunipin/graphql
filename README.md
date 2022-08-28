@@ -1,11 +1,12 @@
 # angular-graphql
 
-Example of how to use [Angular](https://angular.io/) 14 and [GraphQL](https://graphql.org/).
+Example of how to use [Angular](https://angular.io/) 14, [GraphQL](https://graphql.org/)
+and [Tailwind CSS](https://tailwindcss.com/).
 
-The project contains [Apollo Angular](https://apollo-angular.com/), a Dockerfile using [PM2](https://pm2.keymetrics.io/)
-to serve the bundled app and the [GraphQL Code Generator](https://www.graphql-code-generator.com/), the latter can be
-used via `npm run generate` to generate all necessary types for type safety. The GraphQL API used is
-the [Star Wars GraphQL API](https://studio.apollographql.com/public/star-wars-swapi/home?variant=current).
+The project uses [Apollo Angular](https://apollo-angular.com/) and
+the [GraphQL Code Generator](https://www.graphql-code-generator.com/), the latter generates via `npm run generate` all
+necessary types for type safety. The GraphQL API used is
+the [Star Wars GraphQL API](https://studio.apollographql.com/public/star-wars-swapi/home?variant=current). In addition it includes a Dockerfile using [PM2](https://pm2.keymetrics.io/) to serve the bundled app.
 
 ## Development
 
