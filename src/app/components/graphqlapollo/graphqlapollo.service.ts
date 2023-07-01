@@ -40,5 +40,4 @@ export class GraphqlapolloService {
 
     return this.apollo.query({ query, variables }).toPromise();
   }
-
 }
