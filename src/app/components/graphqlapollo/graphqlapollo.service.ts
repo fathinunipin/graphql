@@ -40,4 +40,21 @@ export class GraphqlapolloService {
 
     return this.apollo.query({ query, variables }).toPromise();
   }
+
+  getUser(includeName: boolean, includeEmail: boolean) {
+    return this.apollo.watchQuery<any>({
+      query: gql`
+        query GetUser($includeName: Boolean!, $includeEmail: Boolean!) {
+          user {
+            name 
+            email 
+          }
+        }
+      `,
+      variables: {
+        includeName,
+        includeEmail
+      }
+    }).valueChanges;
+  }
 }

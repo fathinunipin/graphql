@@ -38,6 +38,7 @@ export class GraphqlapolloComponent implements OnInit {
   card: any;
   listCards: any[] = [];
   drawCard: any;
+  user: any;
 
   constructor(
     protected apollo: Apollo,
@@ -49,6 +50,9 @@ export class GraphqlapolloComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.apolloService.getUser(true, true).subscribe(result => {
+      this.user = result.data && result.data.user;
+    });
     // this.apolloService.getListCardsAndDraw().then(result => {
     //   this.card = result.data.cardById;
     //   this.listCards = result.data.listCards;
