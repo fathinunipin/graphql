@@ -1,0 +1,36 @@
+<div *ngIf="response?.hero">
+    <h2>{{ response.hero.name }}</h2>
+    <h3>Friends:</h3>
+    <ul>
+      <li *ngFor="let friend of response.hero.friends">
+        {{ friend.name }} ({{ friend.appearsIn.join(', ') }})
+      </li>
+    </ul>
+</div>
+
+<hr>
+
+<h2>List of Cards and Draw Card</h2>
+    <h3>Card by ID</h3>
+    <p>Name: {{ card?.name }}</p>
+    <p>Description: {{ card?.description }}</p>
+
+    <h3>List of Cards</h3>
+    <ul>
+      <li *ngFor="let card of listCards">
+        <h4>Name: {{ card.name }}</h4>
+        <p>Skills: {{ card.skills }}</p>
+        <p>Attacks:</p>
+        <ul>
+          <li *ngFor="let attack of card.attack">
+            <span>Name: {{ attack.name }}</span>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3>Draw Card</h3>
+    <p>Name: {{ drawCard?.name }}</p>
+    <p>Skills: {{ drawCard?.skills }}</p>
+    <p>Attack: {{ drawCard?.Attack }}</p>
+  

@@ -11,7 +11,12 @@ export class GraphqlService {
 
   private filmsSubscription: Subscription | undefined;
 
-  constructor(private findAllFilmsGQL: FindAllFilmsGQL) {
+  constructor(
+    private findAllFilmsGQL: FindAllFilmsGQL,
+    // private createFilmGQL: CreateFilmGQL,
+    // private deleteFilmGQL: DeleteFilmGQL,
+    // private updateFilmGQL: UpdateFilmGQL
+  ) {
   }
 
   fetchAllFilms(): void {
@@ -28,4 +33,53 @@ export class GraphqlService {
       }
     });
   }
+
+  // createFilm(film: Film): void {
+  //   this.createFilmGQL.mutate({ film }).subscribe({
+  //     next: ({ data }) => {
+  //       // Handle success
+  //       console.log('Film created:', data.createFilm);
+  //       // You can also fetch the films again to update the list
+  //       this.fetchAllFilms();
+  //     },
+  //     error: err => {
+  //       // Handle error
+  //       console.error('Error creating film:', err);
+  //     }
+  //   });
+  // }
+
+  // deleteFilm(filmId: string): void {
+  //   this.deleteFilmGQL.mutate({ filmId }).subscribe({
+  //     next: ({ data }) => {
+  //       // Handle success
+  //       console.log('Film deleted:', data.deleteFilm);
+  //       // You can also fetch the films again to update the list
+  //       this.fetchAllFilms();
+  //     },
+  //     error: err => {
+  //       // Handle error
+  //       console.error('Error deleting film:', err);
+  //     }
+  //   });
+  // }
+
+  // updateFilm(filmId: string, updatedFilm: Film): void {
+  //   this.updateFilmGQL.mutate({ filmId, film: updatedFilm }).subscribe({
+  //     next: ({ data }) => {
+  //       // Handle success
+  //       console.log('Film updated:', data.updateFilm);
+  //       // You can also fetch the films again to update the list
+  //       this.fetchAllFilms();
+  //     },
+  //     error: err => {
+  //       // Handle error
+  //       console.error('Error updating film:', err);
+  //     }
+  //   });
+  // }
+
+  // ngOnDestroy(): void {
+  //   this.filmsSubscription?.unsubscribe();
+  // }
 }

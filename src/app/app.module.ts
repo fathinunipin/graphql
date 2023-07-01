@@ -10,6 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { GraphqlService } from './services/graphql.service';
 import { LoadingBarComponent } from './components/loading-bar/loading-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { GraphqlapolloComponent } from './components/graphqlapollo/graphqlapollo.component';
+import { GraphqlzeusComponent } from './components/graphqlzeus/graphqlzeus.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { FooterComponent } from './components/footer/footer.component';
     HeaderComponent,
     FooterComponent,
     ListItemEpisodeComponent,
-    LoadingBarComponent
+    LoadingBarComponent,
+    GraphqlapolloComponent,
+    GraphqlzeusComponent
   ],
   imports: [
     BrowserModule,
