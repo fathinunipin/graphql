@@ -42,14 +42,16 @@ export class GraphqlapolloComponent implements OnInit {
 
   constructor(
     protected apollo: Apollo,
-    protected apolloService: GraphqlapolloService) {
-    this.apollo.watchQuery<Response>({ query: HERO_QUERY, variables: { episode: 'JEDI' }}).valueChanges.subscribe(result => {
-        this.response = result.data;
-        console.log(this.response.hero);
-      });
-  }
+    protected apolloService: GraphqlapolloService) {}
 
   ngOnInit() {
+    this.apollo.watchQuery<Response>({ query: HERO_QUERY, variables: { episode: 'JEDI' }}).valueChanges.subscribe(result => {
+      this.response = result.data;
+      console.log(this.response.hero);
+    });
+
+    //
+
     this.apolloService.getUser(true, true).subscribe(result => {
       this.user = result.data && result.data.user;
     });

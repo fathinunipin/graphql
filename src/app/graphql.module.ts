@@ -5,6 +5,10 @@ import { HttpLink } from 'apollo-angular/http';
 
 const uri = 'https://swapi-graphql.netlify.app/.netlify/functions/index';
 
+// const uri = 'https://48p1r2roz4.sse.codesandbox.io';
+
+// const uri = 'https://faker.graphqleditor.com/a-team/olympus/graphql';
+
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
   return {
     link: httpLink.create({ uri }),
