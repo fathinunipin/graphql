@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GraphqlzeusService } from './graphqlzeus.service';
 import chain from './graphqlzeus.service';
+import { Observable, map } from 'rxjs';
 
 @Component({
   selector: 'app-graphqlzeus',
@@ -11,6 +12,7 @@ export class GraphqlzeusComponent implements OnInit {
 
   data: any;
   cards: any[] = [];
+  hero$: Observable<Zeus.Query['hero']>;
 
   constructor(private graphqlService: GraphqlzeusService) {}
 
@@ -24,6 +26,8 @@ export class GraphqlzeusComponent implements OnInit {
       });
       this.cards = listCardsAndDraw.listCards;
     } catch (error) { console.error('Error fetching data:', error); }
+
+    this.hero$ = this.graphqlService.getHero().pipe(map(result => result.data.hero));
 
     // this.fetchData();
   }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Chain } from 'graphql-zeus';
+import { Chain, Zeus } from 'graphql-zeus';
+import { Apollo } from 'apollo-angular';
 
 const schema = `
 type Card {
@@ -29,7 +30,7 @@ export class GraphqlzeusService {
 
   // protected chain = Chain(schema, 'https://faker.graphqleditor.com/a-team/olympus/graphql');
   
-  constructor() { }
+  constructor(private apollo: Apollo) {}
 
   // public fetchData(): Observable<any> {
   //   return new Observable<any>((observer) => {
@@ -74,4 +75,21 @@ export class GraphqlzeusService {
   //       });
   //   });
   // }
+
+  getHero() {
+    return this.apollo.watchQuery<Zeus.Query>({
+      query: Zeus.Query({
+        hero: {
+          episode: Zeus.Episode.Jedi,
+          name: true,
+          id: true,
+          friends: {
+            name: true,
+            id: true,
+            appearsIn: true,
+          },
+        },
+      }),
+    }).valueChanges;
+  }
 }
