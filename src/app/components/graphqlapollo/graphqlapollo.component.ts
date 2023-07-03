@@ -2,30 +2,30 @@ import { Component, OnInit } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
 import { GraphqlapolloService } from './graphqlapollo.service';
 
-type Hero = {
-  name: string;
-  id: string;
-  appearsIn: string[];
-  friends: Hero[];
-};
+// type Hero = {
+//   name: string;
+//   id: string;
+//   appearsIn: string[];
+//   friends: Hero[];
+// };
 
-type Response = {
-  hero: Hero;
-};
+// type Response = {
+//   hero: Hero;
+// };
 
-const HERO_QUERY = gql`
-  query GetCharacter($episode: Episode!) {
-    hero(episode: $episode) {
-      name
-      id
-      friends {
-        name
-        id
-        appearsIn
-      }
-    }
-  }
-`;
+// const HERO_QUERY = gql`
+//   query GetCharacter($episode: Episode!) {
+//     hero(episode: $episode) {
+//       name
+//       id
+//       friends {
+//         name
+//         id
+//         appearsIn
+//       }
+//     }
+//   }
+// `;
 
 @Component({
   selector: 'app-graphqlapollo',
@@ -45,10 +45,10 @@ export class GraphqlapolloComponent implements OnInit {
     protected apolloService: GraphqlapolloService) {}
 
   ngOnInit() {
-    this.apollo.watchQuery<Response>({ query: HERO_QUERY, variables: { episode: 'JEDI' }}).valueChanges.subscribe(result => {
-      this.response = result.data;
-      console.log(this.response.hero);
-    });
+    // this.apollo.watchQuery<Response>({ query: HERO_QUERY, variables: { episode: 'JEDI' }}).valueChanges.subscribe(result => {
+    //   this.response = result.data;
+    //   console.log(this.response.hero);
+    // });
 
     //
 
