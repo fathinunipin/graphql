@@ -12,7 +12,7 @@ export class GraphqlzeusComponent implements OnInit {
 
   data: any;
   cards: any[] = [];
-  hero$: Observable<Zeus.Query['hero']>;
+  // hero$: Observable<Zeus.Query['hero']>;
 
   constructor(private graphqlService: GraphqlzeusService) {}
 
@@ -27,7 +27,7 @@ export class GraphqlzeusComponent implements OnInit {
       this.cards = listCardsAndDraw.listCards;
     } catch (error) { console.error('Error fetching data:', error); }
 
-    this.hero$ = this.graphqlService.getHero().pipe(map(result => result.data.hero));
+    // this.hero$ = this.graphqlService.getHero().pipe(map(result => result.data.hero));
 
     // this.fetchData();
   }

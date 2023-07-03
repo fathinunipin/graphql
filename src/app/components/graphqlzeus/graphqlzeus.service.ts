@@ -76,20 +76,22 @@ export class GraphqlzeusService {
   //   });
   // }
 
-  getHero() {
-    return this.apollo.watchQuery<Zeus.Query>({
-      query: Zeus.Query({
-        hero: {
-          episode: Zeus.Episode.Jedi,
-          name: true,
-          id: true,
-          friends: {
-            name: true,
-            id: true,
-            appearsIn: true,
-          },
-        },
-      }),
-    }).valueChanges;
+  //
+
+  // getHero() {
+  //   return this.apollo.watchQuery<Zeus.Query>({
+  //     query: Zeus.Query({
+  //       hero: {
+  //         episode: Zeus.Episode.Jedi,
+  //         name: true,
+  //         id: true,
+  //         friends: {
+  //           name: true,
+  //           id: true,
+  //           appearsIn: true,
+  //         },
+  //       },
+  //     }),
+  //   }).valueChanges;
   }
 }
