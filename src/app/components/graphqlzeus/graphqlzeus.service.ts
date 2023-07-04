@@ -76,8 +76,6 @@ export class GraphqlzeusService {
   //   });
   // }
 
-  //
-
   // getHero() {
   //   return this.apollo.watchQuery<Zeus.Query>({
   //     query: Zeus.Query({
@@ -93,5 +91,5 @@ export class GraphqlzeusService {
   //       },
   //     }),
   //   }).valueChanges;
-  }
+  // }
 }
