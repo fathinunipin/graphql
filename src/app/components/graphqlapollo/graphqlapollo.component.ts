@@ -39,6 +39,9 @@ export class GraphqlapolloComponent implements OnInit {
   listCards: any[] = [];
   drawCard: any;
   user: any;
+  loading: boolean = true;
+  error: any;
+  character: any;
 
   constructor(
     protected apollo: Apollo,
@@ -52,13 +55,28 @@ export class GraphqlapolloComponent implements OnInit {
 
     //
 
-    this.apolloService.getUser(true, true).subscribe(result => {
-      this.user = result.data && result.data.user;
-    });
+    // this.apolloService.getUser(true, true).subscribe(result => {
+    //   this.user = result.data && result.data.user;
+    // });
+
+    //
+
     // this.apolloService.getListCardsAndDraw().then(result => {
     //   this.card = result.data.cardById;
     //   this.listCards = result.data.listCards;
     //   this.drawCard = result.data.drawCard;
     // });
+
+    const characterId = 'ZmlsbXM6MQ=='; // Provide the desired character ID here
+    this.apolloService.getCharacter(characterId).subscribe(
+      (result) => {
+        this.loading = result.loading;
+        this.character = result.data.person;
+      },
+      (error) => {
+        this.loading = false;
+        this.error = error;
+      }
+    );
   }
 }

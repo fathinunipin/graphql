@@ -8,8 +8,6 @@
     </ul>
 </div> -->
 
-<!-- <hr> -->
-
 <!-- <h2>List of Cards and Draw Card</h2>
     <h3>Card by ID</h3>
     <p>Name: {{ card?.name }}</p>
@@ -34,10 +32,20 @@
     <p>Skills: {{ drawCard?.skills }}</p>
     <p>Attack: {{ drawCard?.Attack }}</p> -->
 
-    <hr>
-
     <!-- <div>
         <p>Name: {{ user.name }}</p>
         <p>Email: {{ user.email }}</p>
     </div> -->
+
+    <h1>Apollo</h1>
+    <br>
+    <div *ngIf="loading">Loading...</div>
+    <div *ngIf="error">Error: {{ error }}</div>
+    <div *ngIf="character">
+      <h2>{{ character.name }}</h2>
+      <p>Height: {{ character.height }}</p>
+      <p>Mass: {{ character.mass }}</p>
+      <p>Gender: {{ character.gender }}</p>
+      <p>Homeworld: {{ character.homeworld.name }}</p>
+    </div>
   
