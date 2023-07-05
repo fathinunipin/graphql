@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Chain, Zeus } from 'graphql-zeus';
-import { Apollo } from 'apollo-angular';
+// import { Chain, Zeus } from 'graphql-zeus';
+import { Apollo, gql } from 'apollo-angular';
+import { ApolloClient, ApolloQueryResult, InMemoryCache } from '@apollo/client/core';
 
 const schema = `
 type Card {
@@ -19,18 +20,43 @@ type Query {
 }
 `;
 
-const chain = Chain(schema, 'https://faker.graphqleditor.com/a-team/olympus/graphql');
+// const chain = Chain(schema, 'https://faker.graphqleditor.com/a-team/olympus/graphql');
 
-export default chain;
+// export default chain;
 
 @Injectable({
   providedIn: 'root'
 })
 export class GraphqlzeusService {
 
+  private client: ApolloClient<any>;
   // protected chain = Chain(schema, 'https://faker.graphqleditor.com/a-team/olympus/graphql');
   
-  constructor(private apollo: Apollo) {}
+  constructor(private apollo: Apollo) {
+    this.client = new ApolloClient({
+      uri: 'https://swapi-graphql.netlify.app/.netlify/functions/index',
+      cache: new InMemoryCache(),
+    });
+  }
+
+  public async getPeople(first: number): Promise<ApolloQueryResult<any>> {
+    const query = gql`
+      query GetPeople($first: Int!) {
+        allPeople(first: $first) {
+          people {
+            name
+            gender
+            birthYear
+          }
+        }
+      }
+    `;
+
+    return this.client.query({
+      query,
+      variables: { first },
+    });
+  }
 
   // public fetchData(): Observable<any> {
   //   return new Observable<any>((observer) => {
