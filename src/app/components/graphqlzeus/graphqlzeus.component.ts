@@ -18,6 +18,13 @@ export class GraphqlzeusComponent implements OnInit {
   constructor(private graphqlService: GraphqlzeusService) {}
 
   async ngOnInit(): Promise<void> {
+    try {
+      const result = await this.graphqlService.getPeople(10);
+      this.people = result.data.allPeople.people;
+    } catch (error) {
+      console.error('Error fetching people:', error);
+    }
+
   //   try {
   //     const listCardsAndDraw = await chain('query')({
   //       listCards: {
@@ -45,12 +52,12 @@ export class GraphqlzeusComponent implements OnInit {
   // }
 }
 
-public async fetchPeople(): Promise<void> {
-  try {
-    const result = await this.graphqlService.getPeople(10);
-    this.people = result.data.allPeople.people;
-  } catch (error) {
-    console.error('Error fetching people:', error);
-  }
-}
+// public async fetchPeople(): Promise<void> {
+//   try {
+//     const result = await this.graphqlService.getPeople(10);
+//     this.people = result.data.allPeople.people;
+//   } catch (error) {
+//     console.error('Error fetching people:', error);
+//   }
+// }
 }
